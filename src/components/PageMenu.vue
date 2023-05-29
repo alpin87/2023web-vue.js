@@ -3,7 +3,7 @@
     <nav>
         <li><router-link to="/test" class="menu-item">메뉴1(test)</router-link></li>
         <li><router-link to="/about" class="menu-item">메뉴2(about)</router-link></li>
-        <li><a href="#" class="menu-item">메뉴3</a></li>
+        <li><a href="#" class="menu-item">회사</a></li>
     </nav>
    </aside>
 </template>
