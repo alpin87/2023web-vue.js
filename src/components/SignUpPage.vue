@@ -5,11 +5,11 @@
     <form @submit.prevent="signUp" class="form">
       <div class="form-group">
         <label for="new-username">Username:</label>
-        <input type="text" id="new-username" v-model="username" class="form-control">
+        <input type="text" id="new-username" v-model="username" placeholder="아이디를 입력해주세요" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="new-password">Password:</label>
-        <input type="password" id="new-password" v-model="password" class="form-control">
+        <input type="password" id="new-password" v-model="password" class="form-control" required>
       </div>
       <button type="submit" class="btn">Sign Up</button>
     </form>
@@ -26,7 +26,21 @@ export default {
   },
   methods: {
     signUp () {
+      if (!this.username) {
+        alert('아이디를 입력해주세요')
+        this.username = ''
+        return
+      }
+
+      if (!this.password) {
+        alert('비밀번호를 입력해주세요')
+        this.password = ''
+        return
+      }
+
       console.log('Signing up with', this.username, this.password)
+      alert('생성 완료')
+      this.$router.push('/login')
     }
   }
 }

@@ -5,11 +5,11 @@
     <form @submit.prevent="login" class="form">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input type="text" id="username" v-model="username" class="form-control">
+        <input type="text" id="username" v-model="username" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" class="form-control">
+        <input type="password" id="password" v-model="password" class="form-control" required>
       </div>
       <div class="btn-group">
         <button type="submit" class="btn">Login</button>
@@ -19,7 +19,34 @@
   </div>
 </template>
 
-<!-- 기존의 script와 style 코드는 생략했습니다 -->
+<script>
+export default {
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login () {
+      if (!this.username) {
+        alert('아이디를 입력해주세요')
+        this.username = ''
+        return
+      }
+
+      if (!this.password) {
+        alert('비밀번호를 입력해주세요')
+        this.password = ''
+        return
+      }
+
+      alert('로그인 성공!')
+      this.$router.push('/HomeView')
+    }
+  }
+}
+</script>
 
 <style scoped>
 .container {
