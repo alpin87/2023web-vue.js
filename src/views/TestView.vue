@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="container">
     <div class="search-section">
       <input type="text" v-model="stockName" placeholder="Enter stock name..." class="search-input">
@@ -160,4 +161,16 @@ body, html {
 #stock-table tr:nth-child(even) {
   background-color: #f8f8f8;
 }
+=======
+<div>
+    <h1>테스트영역</h1>
+</div>
+</template>
+
+<script>
+</script>
+
+<style>
+
+>>>>>>> d52ebe3d423373a3d85bbdd7eee69a2a7be68d05
 </style>

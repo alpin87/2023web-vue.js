@@ -23,11 +23,14 @@ const routes = [
     component: () => import('../views/TestView.vue')
   },
   {
+<<<<<<< HEAD
     path: '/search',
     name: 'search',
     component: () => import('../views/SearchView.vue')
   },
   {
+=======
+>>>>>>> d52ebe3d423373a3d85bbdd7eee69a2a7be68d05
     path: '/login',
     name: 'Login',
     component: LoginPage
