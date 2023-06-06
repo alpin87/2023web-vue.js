@@ -1,15 +1,9 @@
 <template>
    <aside class="menu-container">
     <nav>
-<<<<<<< HEAD
         <li><router-link to="/test" class="menu-item">주식</router-link></li>
         <li><router-link to="/about" class="menu-item">주식상세</router-link></li>
         <li><router-link to="/search" class="menu-item">주세</router-link></li>
-=======
-        <li><router-link to="/test" class="menu-item">메뉴1(test)</router-link></li>
-        <li><router-link to="/about" class="menu-item">메뉴2(about)</router-link></li>
-        <li><a href="#" class="menu-item">회사</a></li>
->>>>>>> d52ebe3d423373a3d85bbdd7eee69a2a7be68d05
     </nav>
    </aside>
 </template>
