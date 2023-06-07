@@ -1,11 +1,11 @@
 <template>
-   <aside class="menu-container">
+  <aside class="menu-container">
     <nav>
-        <li><router-link to="/test" class="menu-item">메뉴1(test)</router-link></li>
-        <li><router-link to="/about" class="menu-item">메뉴2(about)</router-link></li>
-        <li><a href="#" class="menu-item">회사</a></li>
+        <li><router-link to="/test" class="menu-item">주식</router-link></li>
+        <li><router-link to="/about" class="menu-item">주식상세</router-link></li>
+        <li><router-link to="/search" class="menu-item">암호화폐</router-link></li>
     </nav>
-   </aside>
+  </aside>
 </template>
 
 <script>
@@ -15,8 +15,8 @@
 .menu-container {
   width: 200px;
   height: 100vh;
-  background-color: #f5f5f5;
-  border-right: 1px solid #ddd;
+  background-color: #42b983; /* Dark green-blue */
+  border-right: 1px solid #42B983; /* Vue.js green */
 }
 
 .menu-container nav {
@@ -26,12 +26,12 @@
 
 .menu-item {
   display: block;
-  color: #333;
+  color: #white; /* White text */
   text-decoration: none;
   padding: 10px 0;
 }
 
 .menu-item:hover {
-  color: #42b983;
+  color: #white; /* Vue.js green for hover state */
 }
 </style>
