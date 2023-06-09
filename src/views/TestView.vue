@@ -96,8 +96,9 @@ body, html {
 }
 
 .container {
-  width: 100%;
+  width: 80%;
   max-width: 1800px;
+  margin-left:250px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background: white;

@@ -4,16 +4,16 @@
       <h2 class="card-header">Login</h2>
       <form @submit.prevent="login" class="form">
         <div class="form-group">
-          <label for="username">Username:</label>
+          <label for="username">아이디</label>
           <input type="text" id="username" v-model="username" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
+          <label for="password">비밀번호</label>
           <input type="password" id="password" v-model="password" class="form-control" required>
-        </div>
-        <div class="btn-group">
           <button type="submit" class="btn">Login</button>
-          <router-link to="/signup" class="btn btn-secondary">Sign Up</router-link>
+          <router-link to="/signup" custom>
+          <template v-slot:default="{ navigate }">
+          <button class="btn" @click="navigate">Sign Up</button>
+          </template>
+          </router-link>
         </div>
       </form>
     </div>
@@ -51,36 +51,38 @@ export default {
 
 <style scoped>
 body, html {
-  width: 1000px;
+  width: 1800px;  /* Updated width to 1800px */
   height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* change start to flex-start */
+  align-items: center; /* Updated to center */
   background: #f2f2f2;
 }
 
 .container {
-  width: 1000px;
+  width: 1800px; /* Updated width to 1800px */
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* change start to flex-start */
+  align-items: flex-start; /* Updated to align items to the start */
   min-height: 100vh;
   padding: 0 20px;
   background-color: #f4f4f4;
 }
+
 .form {
   padding: 50px 20px; /* Increase the top and bottom padding */
 }
+
 .card {
   width: 100%;
   max-width: 500px;
-  margin: auto; /* Center the card */
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  margin-top:200px;
 }
 
 .card-header {
@@ -95,22 +97,23 @@ body, html {
 }
 
 .form-group {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: stretch; /* Stretch the elements to take up full width */
+  gap: 10px; /* Space between the elements */
 }
 
 .form-control {
-  padding: 10px;
+  padding: 15px;  /* Increased padding */
   border-radius: 5px;
   border: 1px solid #ddd;
-  font-size: 1rem;
+  font-size: 1.5rem;  /* Increased font size */
+  height: 1.5em;  /* Increased height */
+  width: 93%;  /* Added to set the width of the input fields */
 }
 
-.btn-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn {
+.btn,
+.btn-secondary {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;

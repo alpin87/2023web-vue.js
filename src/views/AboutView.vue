@@ -114,14 +114,16 @@ export default {
               beginAtZero: true
             },
             y: {
-              type: 'linear',
+              type: 'logarithmic',
               beginAtZero: true,
               ticks: {
                 callback: value => {
                   if (value >= 100000000) {
                     return `${(value / 100000000).toFixed(1)}억`
-                  } else {
+                  } else if (value >= 10000) {
                     return `${(value / 10000).toFixed(0)}만`
+                  } else {
+                    return value.toFixed(0)
                   }
                 }
               }
@@ -170,8 +172,9 @@ html {
 }
 
 .container {
-  width: 100%;
   max-width: 1800px;
+  margin-left:250px;
+  width: 100%;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background: white;
@@ -188,11 +191,11 @@ html {
 
 .chart-section {
   margin-bottom: 20px;
-  margin-left: 30px;
+  margin-left: 300px;
 }
 
 .search-section {
-  width: 100%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -218,8 +221,8 @@ html {
 }
 
 .table-section {
-  width: 100%;
-  margin-top: 20px;
+  width: 70%;
+  margin-top: 30px;
 }
 
 #stock-table {

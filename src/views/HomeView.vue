@@ -15,7 +15,7 @@
           <th>전일종가</th>
           <th>최근 24시간 거래량</th>
           <th>최근 24시간 거래금액</th>
-          <th>F최근 24시간 변동가</th>
+          <th>최근 24시간 변동가</th>
           <th>최근 24시간 변동률</th>
         </tr>
       </thead>
@@ -209,6 +209,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center; /* Add this line */
   margin-bottom: 20px;
 }
 

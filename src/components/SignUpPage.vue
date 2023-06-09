@@ -1,18 +1,20 @@
 <!-- SignUpPage.vue -->
 <template>
   <div class="container">
-    <h2>Sign Up</h2>
-    <form @submit.prevent="signUp" class="form">
-      <div class="form-group">
-        <label for="new-username">Username:</label>
-        <input type="text" id="new-username" v-model="username" placeholder="아이디를 입력해주세요" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="new-password">Password:</label>
-        <input type="password" id="new-password" v-model="password" class="form-control" required>
-      </div>
-      <button type="submit" class="btn">Sign Up</button>
-    </form>
+    <div class="card">
+      <h2 class="card-header">Sign Up</h2>
+      <form @submit.prevent="signUp" class="form">
+        <div class="form-group">
+          <label for="new-username">아이디</label>
+          <input type="text" id="new-username" v-model="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="new-password">비밀번호</label>
+          <input type="password" id="new-password" v-model="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -46,34 +48,73 @@ export default {
 }
 </script>
 
-<!-- 기존의 스타일링 코드는 생략했습니다 -->
 <style scoped>
+body, html {
+  width: 1800px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 1800px; /* Updated width to 1800px */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Updated to align items to the start */
+  min-height: 100vh;
+  padding: 0 20px;
+  background-color: #f4f4f4;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 50px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top:200px;
+}
+
+.card-header {
+  background-color: #42b983;
+  color: #fff;
+  padding: 20px;
+  font-size: 1.5rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
 }
 
 .form-control, .btn {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1.5rem;
+  width: 95%; /* Set width to 100% */
 }
 
 .btn {
-  cursor: pointer;
-  background-color: #42b983;
+  margin-left: 10px;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   color: #fff;
+  background-color: #42b983;
+  cursor: pointer;
+  font-size: 1.1rem;
 }
 </style>

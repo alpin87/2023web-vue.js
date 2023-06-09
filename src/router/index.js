@@ -36,6 +36,16 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: SignUpPage
+  },
+  {
+    path: '/PageMenu',
+    name: 'PageMenu',
+    component: () => import('../components/PageMenu.vue')
+  },
+  {
+    path: '/rate',
+    name: 'rate',
+    component: () => import('../views/ExchangeRate.vue')
   }
 ]
 

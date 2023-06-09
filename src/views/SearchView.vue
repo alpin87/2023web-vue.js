@@ -107,6 +107,8 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  max-width: 1800px;
+  margin-left:250px;
 }
 
 .search-container {
@@ -124,7 +126,7 @@ export default {
 }
 
 .ticker-table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   border: 1px solid #ddd;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
