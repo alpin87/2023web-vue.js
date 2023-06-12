@@ -8,6 +8,7 @@
       </div>
       <div class="brand-name" @click="$router.push({ name: 'home' })">C-S Brand</div>
       <router-link to="/rate" class="nav-item">실시간 뉴스</router-link>
+      <router-link to="/Todo" class="nav-item">체크리스트</router-link> <!-- 추가된 체크리스트 메뉴 -->
     </div>
     <div class="right-container">
       <div class="digital-clock">
@@ -80,8 +81,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1001;  /* 헤더가 메뉴 위에 위치하도록 수정 */
-  position: relative;  /* z-index를 적용하기 위한 position 설정 */
+  z-index: 1001;
+  position: relative;
 }
 
 .left-container {
@@ -110,7 +111,7 @@ export default {
 .right-container {
   display: flex;
   align-items: center;
-  margin-right:400px;
+  margin-right: 400px;
 }
 
 .digital-clock {
@@ -136,7 +137,7 @@ export default {
   flex-flow: column;
   justify-content: space-around;
   cursor: pointer;
-  margin-left:-119px;
+  margin-left: -119px;
 }
 
 .hamburger-menu div {

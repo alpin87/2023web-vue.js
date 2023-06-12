@@ -18,6 +18,11 @@ export default {
     PageFooter,
     PageHeader,
     PageMenu
+  },
+  data () {
+    return {
+      userLoggedIn: false
+    }
   }
 }
 </script>

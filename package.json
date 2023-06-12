@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve && server.js",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -14,9 +14,11 @@
     "cheerio": "^1.0.0-rc.12",
     "core-js": "^3.8.3",
     "express": "^4.18.2",
+    "moment": "^2.29.4",
     "superagent": "^8.0.9",
     "vue": "^3.3.4",
     "vue-chartjs": "^2.8.0",
+    "vue-naver-login": "^1.0.4",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },

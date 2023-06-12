@@ -8,12 +8,15 @@
           <input type="text" id="username" v-model="username" class="form-control" required>
           <label for="password">비밀번호</label>
           <input type="password" id="password" v-model="password" class="form-control" required>
-          <button type="submit" class="btn">Login</button>
+          <button type="submit" class="btn">{{ loginText }}</button> <!-- using loginText here -->
           <router-link to="/signup" custom>
-          <template v-slot:default="{ navigate }">
-          <button class="btn" @click="navigate">Sign Up</button>
-          </template>
+            <template v-slot:default="{ navigate }">
+              <button class="btn" @click="navigate">Sign Up</button>
+            </template>
           </router-link>
+          <button class="btn">
+          <div id="naver_id_login"></div>
+          </button>
         </div>
       </form>
     </div>
@@ -21,6 +24,9 @@
 </template>
 
 <script>
+// Assuming naver_id_login is globally available or imported
+// const { naver_id_login } = globalThis; // Uncomment if needed
+
 export default {
   data () {
     return {
@@ -28,7 +34,34 @@ export default {
       password: ''
     }
   },
+  computed: {
+    loginText () {
+      return this.username && this.password ? 'Login' : '로그인'
+    }
+  },
+  mounted () {
+    if (window.naver) {
+      this.initNaverLogin()
+    } else {
+      const naverScript = document.createElement('script')
+      naverScript.src = 'https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js'
+      document.head.appendChild(naverScript)
+
+      naverScript.onload = this.initNaverLogin
+    }
+  },
   methods: {
+    initNaverLogin () {
+    /* eslint-disable new-cap */
+      var naverLogin = new window.naver_id_login('m5npFmBjcdL8D4jVW6wx', 'http://localhost:8080/naverlogin')
+      /* eslint-enable new-cap */
+      var state = naverLogin.getUniqState()
+      naverLogin.setButton('white', 2, 40)
+      naverLogin.setDomain('http://localhost:8080/')
+      naverLogin.setState(state)
+      naverLogin.setPopup()
+      naverLogin.init_naver_id_login()
+    },
     login () {
       if (!this.username) {
         alert('아이디를 입력해주세요')

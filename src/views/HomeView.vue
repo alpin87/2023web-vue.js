@@ -152,7 +152,13 @@ export default {
     setInterval(() => {
       this.fetchTickerData()
     }, 5000)
+  },
+  computed: {
+    loginText () {
+      return this.$root.userLoggedIn ? 'Logout' : 'Login'
+    }
   }
+
 }
 </script>
 
