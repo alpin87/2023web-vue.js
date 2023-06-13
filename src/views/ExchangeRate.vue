@@ -38,8 +38,8 @@ export default {
     try {
       const response = await axiosInstance.get('', {
         headers: {
-          'X-Naver-Client-Id': '0KYsnPH9krS8uPLXkGo7',
-          'X-Naver-Client-Secret': 'upE50_JbaE'
+          'X-Naver-Client-Id': '',
+          'X-Naver-Client-Secret': ''
         },
         params: {
           query: '뉴스',

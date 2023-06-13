@@ -5,6 +5,7 @@
           <li><router-link to="/test" class="menu-item">주식</router-link></li>
           <li><router-link to="/about" class="menu-item">주식차트</router-link></li>
           <li><router-link to="/search" class="menu-item">암호화폐</router-link></li>
+          <li><router-link to="/Prof" class="menu-item">자기소개글</router-link></li>
       </nav>
     </div>
   </aside>
@@ -35,7 +36,7 @@ export default {
   transform: translateY(-100%);
   visibility: hidden; /* 초기에 메뉴를 안 보이게 설정 */
   opacity: 0;
-  background-color:white;
+  background-color:transparent;
 }
 
 .menu-box {

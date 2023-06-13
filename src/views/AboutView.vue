@@ -173,7 +173,7 @@ html {
 
 .container {
   max-width: 1800px;
-  margin-left:250px;
+  margin-left:300px;
   width: 100%;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

@@ -43,8 +43,8 @@ export default {
   },
   methods: {
     async fetchStockData () {
-      const SERVICE_KEY = 'sPflHfYN%2B8hDbVPVQ1Tzan%2BDdcLML3zuUddb2dfQ8LSZ%2F7w8YaM5fvHp69XKA6djtQVDvhj8NKn6KgsdvMzaTg%3D%3D'
-      const url = `https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=${SERVICE_KEY}&numOfRows=100&pageNo=1`
+      const SERVICE_KEY = ''
+      const url = ``
 
       try {
         const { data } = await axios.get(url)
@@ -98,7 +98,7 @@ body, html {
 .container {
   width: 80%;
   max-width: 1800px;
-  margin-left:250px;
+  margin-left:300px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background: white;

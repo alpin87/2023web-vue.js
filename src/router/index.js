@@ -4,6 +4,7 @@ import LoginPage from '@/components/LoginPage.vue'
 import SignUpPage from '@/components/SignUpPage.vue'
 import NaverLogin from '../views/NaverLogin.vue'
 import Todo from '../views/Todo.vue'
+import Prof from '../views/Prof.vue'
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
     path: '/Todo',
     name: 'Todo',
     component: Todo
+  },
+  {
+    path: '/Prof',
+    name: 'Prof',
+    component: Prof
   }
 ]
 

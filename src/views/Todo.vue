@@ -1,23 +1,27 @@
 <template>
-  <div class="todo-container">
-    <div class="todo-header">
-      <h1>Todo List</h1>
-      <div class="todo-input">
-        <input v-model="newTodo" placeholder="할 일을 입력하세요" />
-        <button @click="addTodo">추가</button>
+  <div class="app-container">
+    <div class="todo-container">
+      <div class="todo-header">
+        <h1>체크리스트</h1>
+        <div class="todo-input">
+          <input v-model="newTodo" placeholder="할 일을 입력하세요" />
+          <button @click="addTodo">추가</button>
+        </div>
+      </div>
+      <div class="todo-list-container">
+        <div class="todo-list-row" v-for="(row, i) in todoRows" :key="'row-' + i">
+          <div class="todo-item" v-for="(todo, index) in row" :key="'todo-' + index">
+            <input
+              type="checkbox"
+              v-model="todo.completed"
+              @change="handleCheckboxChange(todo)"
+            />
+            <span :class="{ 'completed': todo.completed }">{{ todo.text }}</span>
+            <button @click="deleteTodo(index + i * 4)">삭제</button>
+          </div>
+        </div>
       </div>
     </div>
-    <ul class="todo-list">
-      <li v-for="(todo, index) in todos" :key="index">
-        <input
-          type="checkbox"
-          v-model="todo.completed"
-          @change="handleCheckboxChange(todo)"
-        />
-        <span :class="{ 'completed': todo.completed }">{{ todo.text }}</span>
-        <button @click="deleteTodo(index)">삭제</button>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -28,6 +32,15 @@ export default {
     return {
       newTodo: '',
       todos: []
+    }
+  },
+  computed: {
+    todoRows () {
+      const rows = []
+      for (let i = 0; i < this.todos.length; i += 4) {
+        rows.push(this.todos.slice(i, i + 4))
+      }
+      return rows
     }
   },
   created () {
@@ -67,73 +80,88 @@ export default {
 </script>
 
 <style scoped>
-body, html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+.app-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  background: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
 }
 
 .todo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
+  max-width: 800px;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .todo-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  text-align: center;
+}
+
+.todo-header h1 {
+  color: #333333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
 .todo-input {
   margin-top: 10px;
 }
 
-.todo-list {
-  margin-top: 20px;
-  list-style: none;
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.todo-list li {
+.todo-list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.todo-item {
+  width: calc(25% - 10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
   padding: 15px;
-  background-color: #fff;
+  background: linear-gradient(to right, #f5f5f5, #fff);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.todo-list li:hover {
+.todo-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.todo-list li.completed {
+.todo-item.completed {
   opacity: 0.7;
   text-decoration: line-through;
 }
 
-.todo-list li span {
+.todo-item span {
   flex-grow: 1;
   font-size: 18px;
   font-weight: bold;
   color: #333;
 }
 
-.todo-list li button {
+.todo-item button {
   margin-left: 10px;
   padding: 8px 12px;
-  background-color: #d62828;
+  background-color: #f54242;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -142,7 +170,7 @@ body, html {
   transition: background-color 0.3s ease;
 }
 
-.todo-list li button:hover {
-  background-color: #b71c1c;
+.todo-item button:hover {
+  background-color: #d12323;
 }
 </style>

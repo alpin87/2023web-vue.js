@@ -53,7 +53,7 @@ export default {
   methods: {
     initNaverLogin () {
     /* eslint-disable new-cap */
-      var naverLogin = new window.naver_id_login('m5npFmBjcdL8D4jVW6wx', 'http://localhost:8080/naverlogin')
+      var naverLogin = new window.naver_id_login('', '')
       /* eslint-enable new-cap */
       var state = naverLogin.getUniqState()
       naverLogin.setButton('white', 2, 40)

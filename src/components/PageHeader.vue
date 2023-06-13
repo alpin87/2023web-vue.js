@@ -6,9 +6,11 @@
         <div></div>
         <div></div>
       </div>
-      <div class="brand-name" @click="$router.push({ name: 'home' })">C-S Brand</div>
+      <router-link to="/" class="nav-item, brand-logo">
+        <img src="@/assets/logo.png" alt="C-S Brand" />
+      </router-link>
       <router-link to="/rate" class="nav-item">실시간 뉴스</router-link>
-      <router-link to="/Todo" class="nav-item">체크리스트</router-link> <!-- 추가된 체크리스트 메뉴 -->
+      <router-link to="/Todo" class="nav-item">체크리스트</router-link>
     </div>
     <div class="right-container">
       <div class="digital-clock">
@@ -21,7 +23,7 @@
         <router-link to="/login" class="nav-item">로그인</router-link>
       </nav>
     </div>
-    <PageMenu :menuOpen="menuOpen"/>
+    <PageMenu :menuOpen="menuOpen" />
   </header>
 </template>
 

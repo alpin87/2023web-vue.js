@@ -120,7 +120,7 @@ export default {
       const paymentCurrency = 'KRW' // 변경 가능한 통화 코드
 
       try {
-        const response = await axios.get(`https://api.bithumb.com/public/ticker/ALL_${paymentCurrency}`)
+        const response = await axios.get(``)
         this.tickerData = response.data.data
 
         this.updateTopCoins()
